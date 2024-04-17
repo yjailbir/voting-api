@@ -1,7 +1,9 @@
 package program.code.voting.controller;
 
+import jakarta.persistence.GeneratedValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,6 +11,7 @@ import program.code.voting.dto.VoteDto;
 import program.code.voting.entity.Vote;
 import program.code.voting.repository.VotesRepository;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 @RestController
@@ -45,5 +48,10 @@ public class VotingController {
         response.put("status", "done");
 
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/test")
+    public void test(){
+        System.out.println(Arrays.toString(votesRepository.findAll().toArray()));
     }
 }
