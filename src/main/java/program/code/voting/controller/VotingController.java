@@ -2,10 +2,7 @@ package program.code.voting.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import program.code.voting.dto.VoteDto;
 import program.code.voting.entity.Vote;
 import program.code.voting.repository.VotesRepository;
@@ -52,5 +49,10 @@ public class VotingController {
     @GetMapping("/test")
     public void test(){
         System.out.println(Arrays.toString(votesRepository.findAll().toArray()));
+    }
+
+    @DeleteMapping("/truncate")
+    public void truncate(){
+        votesRepository.deleteAll();
     }
 }

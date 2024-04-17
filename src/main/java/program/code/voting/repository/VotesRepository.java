@@ -6,4 +6,5 @@ import program.code.voting.entity.Vote;
 
 @Repository
 public interface VotesRepository extends JpaRepository<Vote, Long> {
+    void deleteAll();
 }
